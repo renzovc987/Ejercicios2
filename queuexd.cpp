@@ -3,7 +3,7 @@
 #include "queue.h"
 
 struct queue_s* Allocate_queue() {
-   struct queue_s* q_p = malloc(sizeof(struct queue_s));
+   struct queue_s* q_p = new(struct queue_s);
    q_p->enqueued = q_p->dequeued = 0;
    q_p->front_p = NULL;
    q_p->tail_p = NULL;
@@ -36,7 +36,7 @@ void Print_queue(struct queue_s* q_p) {
 }  
 
 void Enqueue(struct queue_s* q_p, int src, int mesg) {
-   struct queue_node_s* n_p = malloc(sizeof(struct queue_node_s));
+   struct queue_node_s* n_p = new(struct queue_node_s);
    n_p->src = src;
    n_p->mesg = mesg;
    n_p->next_p = NULL;
