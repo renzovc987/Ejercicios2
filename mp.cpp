@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
    send_max = strtol(argv[2], NULL, 10);
    if (thread_count <= 0 || send_max < 0) Usage(argv[0]);
 
-   msg_queues = malloc(thread_count*sizeof(struct queue_node_s*));
+   msg_queues = new(struct queue_node_s*);
 
 #  pragma omp parallel num_threads(thread_count) \
       default(none) shared(thread_count, send_max, msg_queues, done_sending)
